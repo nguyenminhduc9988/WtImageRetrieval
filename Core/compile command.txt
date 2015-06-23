@@ -1,0 +1,2 @@
+g++ -std=c++0x -o main main.cpp -lpthread -lhdf5 -lboost_system -lboost_filesystem `pkg-config --libs opencv` -lmysqlcppconn
+
