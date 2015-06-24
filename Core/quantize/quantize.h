@@ -1,20 +1,26 @@
+#pragma
 #ifndef QUANTIZE_H_INCLUDED
 #define QUANTIZE_H_INCLUDED
 
 #include "../configurations.h"
-namespace {
 
-    const double deltaSqr = 6250;
-    const int nKdTree = 8;
-    const int nChecks = 800;
-    const int dataKnn = 1;
-    const int queryKnn = 3;
+ const double deltaSqr = 6250;
+ const int nKdTree = 8;
+ const int nChecks = 800;
+ const int dataKnn = 1;
+ const int queryKnn = 3;
+ class Quantize
+ {
+ public:
+     static cvflann::Index<cvflann::L2<double>> *treeIndex;
+     static cvflann::Matrix<double> dataset;
+ };
 
-    cvflann::Matrix<double> dataset;
-    cvflann::Index<cvflann::L2<double>> *treeIndex;
+
+
 
     inline void buildIndex(bool force = false) {
-        cvflann::load_from_file(dataset, codebookFile, "clusters");
+        cvflann::load_from_file(Quantize::dataset, codebookFile, "clusters");
 
         cvflann::IndexParams *indexParams;
 
@@ -23,9 +29,9 @@ namespace {
         else
             indexParams = new cvflann::KDTreeIndexParams(nKdTree);
 
-        treeIndex = new cvflann::Index<cvflann::L2<double>> (dataset, *indexParams);
-        treeIndex->buildIndex();
-        treeIndex->save(indexFile);
+        Quantize::treeIndex = new cvflann::Index<cvflann::L2<double>> (Quantize::dataset, *indexParams);
+        Quantize::treeIndex->buildIndex();
+        Quantize::treeIndex->save(indexFile);
     }
 
     inline void buildBoW(const mat &imageDesc, vec &_weights, uvec &_termID, const string &weightPath, const string &termIDPath, bool force = false) {
@@ -42,7 +48,7 @@ namespace {
         cvflann::Matrix<int> indices(new int[query.rows*queryKnn], query.rows, queryKnn);
         cvflann::Matrix<double> dists(new double[query.rows*queryKnn], query.rows, queryKnn);
 
-        treeIndex->knnSearch(query, indices, dists, queryKnn, cvflann::SearchParams(nChecks));
+        Quantize::treeIndex->knnSearch(query, indices, dists, queryKnn, cvflann::SearchParams(nChecks));
 
         umat bins(queryKnn, query.rows);
         memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(int));
@@ -58,5 +64,12 @@ namespace {
         _weights.save(weightPath);
         _termID.save(termIDPath);
     }
-}
+
+
+
+
+
+
+
+
 #endif

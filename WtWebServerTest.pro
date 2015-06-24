@@ -3,6 +3,7 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 CONFIG += c++11
+CONFIG += -02
 
 SOURCES += main.cpp \
     imageretrievalapplication.cpp \
@@ -12,7 +13,9 @@ SOURCES += main.cpp \
     Core/utils/hesaff/hesaff.cpp \
     Core/utils/hesaff/pyramid.cpp \
     Core/utils/hesaff/siftdesc.cpp \
-    Core/compute_map.cpp
+    Core/compute_map.cpp \
+    Core/quantize/quantize.cpp \
+    Core/app/appdata.cpp
 
 include(deployment.pri)
 qtcAddDeployment()

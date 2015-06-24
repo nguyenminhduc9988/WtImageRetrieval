@@ -5,6 +5,9 @@
 #include <string>
 #include <Wt/Json/Parser>
 #include <iostream>
+#include <ostream>
+#include <istream>
+#include <streambuf>
 
 #include "Core/configurations.h"
 #include "Core/app/appdata.h"
@@ -13,6 +16,7 @@
 #include "Core/query/query.h"
 #include "Core/utils/score.h"
 #include "Core/utils/utils.h"
+
 
 using namespace Wt;
 using namespace Wt::Http;
@@ -58,6 +62,9 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     for (int i = 0; i < nDocs; i++)
         rankedList[i] = i;
     sort(rankedList.begin(), rankedList.end(), score);
+    for (int i=0; i<nDocs; ++i)
+        response.out() << app->path[rankedList[i]];
+
 
 //    Read post data if you want to get the structure parse manually
 //    const istream *reqBody = &request.in();

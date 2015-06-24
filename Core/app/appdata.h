@@ -5,36 +5,35 @@
 #include "../configurations.h"
 #include "../utils/invertedindex.h"
 
-namespace {
-    class AppData {
-    public:
 
-        InvertedIndex ivt;
-        vector<string> path;
-        vector<mat> kp, sift;
-        vector<vec> weights;
-        vector<uvec> termID;
+class AppData {
+public:
 
-    private:
+    InvertedIndex ivt;
+    vector<string> path;
+    vector<mat> kp, sift;
+    vector<vec> weights;
+    vector<uvec> termID;
 
-        static AppData* _instance;
+private:
 
-        AppData(): ivt(number_of_visual_words) {}
-        AppData(AppData const &) {}
-        AppData& operator = (AppData const &) {}
+    static AppData* _instance;
 
-    public:
+    AppData(): ivt(number_of_visual_words) {}
+    AppData(AppData const &) {}
+    AppData& operator = (AppData const &) {}
 
-        static inline AppData* getInstance() {
-            if (_instance == NULL)
-                _instance = new AppData();
+public:
 
-            return _instance;
-        }
+    static inline AppData* getInstance() {
+        if (_instance == NULL)
+            _instance = new AppData();
 
-    };
+        return _instance;
+    }
+
+};
 
 
-    AppData* AppData::_instance = NULL;
-}
+
 #endif
