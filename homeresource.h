@@ -1,6 +1,7 @@
 #ifndef HOMERESOURCE_H
 #define HOMERESOURCE_H
-
+#include <Wt/WApplication>
+#include <Wt/WResource>
 
 class HomeResource : public WResource
 {
