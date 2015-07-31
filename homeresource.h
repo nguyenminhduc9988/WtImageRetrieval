@@ -3,6 +3,9 @@
 #include <Wt/WApplication>
 #include <Wt/WResource>
 
+using namespace Wt;
+using namespace std;
+
 class HomeResource : public WResource
 {
 public:
