@@ -10,6 +10,7 @@
 #include <Wt/WGlobal>
 #include "imageretrievalapplication.h"
 #include "imageresource.h"
+#include "homeresource.h"
 #include "Core/configurations.h"
 #include "Core/initialize.h"
 #include "Core/runserver.h"
@@ -40,7 +41,9 @@ int main(int argc, char** argv)
         WServer server(argv[0]);
         server.setServerConfiguration(argc, argv, WTHTTP_CONFIGURATION);
         ImageResource* resource = new ImageResource();
+        HomeResource* homeresource = new HomeResource();
 
+        server.addResource(homeresource, "/");
         server.addResource(resource, "/api");
 
         //server.addEntryPoint(Wt::EntryP, createApplication);

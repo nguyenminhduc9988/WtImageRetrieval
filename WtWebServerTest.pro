@@ -15,7 +15,8 @@ SOURCES += main.cpp \
     Core/utils/hesaff/siftdesc.cpp \
     Core/compute_map.cpp \
     Core/quantize/quantize.cpp \
-    Core/app/appdata.cpp
+    Core/app/appdata.cpp \
+    homeresource.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -39,7 +40,8 @@ HEADERS += \
     Core/initialize.h \
     Core/local_configurations.h \
     Core/runserver.h \
-    Core/test.h
+    Core/test.h \
+    homeresource.h
 LIBS += -lwthttp -lwt -lpthread -lhdf5 -lboost_system -lboost_filesystem `pkg-config --libs opencv` -lmysqlcppconn
 
 
