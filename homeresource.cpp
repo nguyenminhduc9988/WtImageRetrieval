@@ -17,6 +17,10 @@
 #include "Core/utils/score.h"
 #include "Core/utils/utils.h"
 
+using namespace Wt;
+using namespace Wt::Http;
+using namespace std;
+
 HomeResource::HomeResource()
 {
 
