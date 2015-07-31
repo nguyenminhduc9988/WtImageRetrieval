@@ -32,7 +32,11 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
 {
     const string* imgPath = request.getParameter("imgPath");
     const string* imgName = request.getParameter("imgName");
-
+    if (!imgPath || !imgName)
+    {
+        response.out() << "No image is selected sorry\n";
+        return;
+    }
     AppData *app = AppData::getInstance();
 
     string tmp = *imgName;
