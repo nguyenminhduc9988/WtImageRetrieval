@@ -37,8 +37,8 @@ struct InvertedIndex {
         debugInfo("Computing tfidf");
         for (int i = 0; i < nWords; i++) {
             
-            if (index[i].size() == 0)
-                debugVar(i);
+//            if (index[i].size() == 0)
+//                debugVar(i);
 
             double idf = log(double(nDocs) / (index[i].size()));
 
@@ -90,8 +90,8 @@ struct InvertedIndex {
     void add(vec freq, uvec termId, int docId) {
         nDocs++;
 
-        debugInfo("Adding document to inverted index");
-        debugVar(docId);
+//        debugInfo("Adding document to inverted index");
+//        debugVar(docId);
 
         vector <int> rawFreq(nWords);
         for (int i = 0; i < termId.n_elem; i++) {
