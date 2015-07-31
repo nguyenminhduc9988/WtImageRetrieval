@@ -11,6 +11,7 @@ class ImageResource : public WResource
 public:
     ImageResource();
     virtual void handleRequest(const Http::Request &request, Http::Response &response);
+    virtual void queryExpansion();
     ~ImageResource();
 };
 

@@ -34,7 +34,7 @@ void extractAll() {
     boost::filesystem::create_directories(tempFolder);
     for (string imgPath : app->path) {
 
-        debugVar(imgPath);
+//        debugVar(imgPath);
 
         string tmp = imgPath;
         tmp.replace(tmp.size() - 3, 3, "mat");
@@ -44,8 +44,8 @@ void extractAll() {
         string tempPath = tempFolder + "/" + tmp;
         imgPath = dataFolder + "/" + imgPath;
 
-        debugVar(kpPath);
-        debugVar(siftPath);
+//        debugVar(kpPath);
+//        debugVar(siftPath);
         mat _kp, _sift;
         extractFeatures(imgPath, _kp, _sift, kpPath, siftPath, tempPath);
 
@@ -75,9 +75,9 @@ void quantizeAllData() {
         string weightPath = weightFolder + "/" + tmp;
         string termIDPath = termIDFolder + "/" + tmp;
 
-        debugVar(i);
-        debugVar(weightPath);
-        debugVar(termIDPath);
+//        debugVar(i);
+//        debugVar(weightPath);
+//        debugVar(termIDPath);
 
         vec _weights;
         uvec _termID;

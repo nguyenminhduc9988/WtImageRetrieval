@@ -33,11 +33,11 @@ WApplication* createApplication(const WEnvironment& env)
 
 int main(int argc, char** argv)
 {
+    cout << argv[0] << endl;
     extractAll();
     quantizeAllData();
     try
     {
-
         WServer server(argv[0]);
         server.setServerConfiguration(argc, argv, WTHTTP_CONFIGURATION);
         ImageResource* resource = new ImageResource();

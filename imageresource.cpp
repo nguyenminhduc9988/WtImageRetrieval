@@ -76,7 +76,12 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
 //            break;
 //         }
 //         prevString = inputName;
-//    }
+    //    }
+}
+
+void ImageResource::queryExpansion()
+{
+
 }
 
 ImageResource::~ImageResource()
