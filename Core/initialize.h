@@ -6,7 +6,8 @@
 #include "app/appdata.h"
 #include "extract/extract.h"
 #include "quantize/quantize.h"
-
+#include <iostream>
+using namespace std;
 
 void extractAll() {
 

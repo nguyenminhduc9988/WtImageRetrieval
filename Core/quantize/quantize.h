@@ -68,7 +68,7 @@ using namespace std;
         mat weights = exp(-sqrDists / (2 * deltaSqr));
         weights = weights / repmat(sum(weights, 0), weights.n_rows, 1);
         _weights = vectorise(weights, 0);
-        cout << "Ready to save termId" << end;
+        cout << "Ready to save termId" << endl;
         if (save)
         {
             _weights.save(weightPath);
