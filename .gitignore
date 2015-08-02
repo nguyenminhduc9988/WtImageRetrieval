@@ -1,0 +1,4 @@
+# ignore temp files
+# key nmduc, login as duc
+WtWebServerTest.pro.user.*
+WtWebServerTest.pro.user

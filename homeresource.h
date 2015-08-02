@@ -1,18 +1,17 @@
-#ifndef IMAGERESOURCE_H
-#define IMAGERESOURCE_H
+#ifndef HOMERESOURCE_H
+#define HOMERESOURCE_H
 #include <Wt/WApplication>
 #include <Wt/WResource>
 
 using namespace Wt;
 using namespace std;
 
-class ImageResource : public WResource
+class HomeResource : public WResource
 {
 public:
-    ImageResource();
+    HomeResource();
     virtual void handleRequest(const Http::Request &request, Http::Response &response);
-    virtual void queryExpansion();
-    ~ImageResource();
+    ~HomeResource();
 };
 
-#endif // IMAGERESOURCE_H
+#endif // HOMERESOURCE_H

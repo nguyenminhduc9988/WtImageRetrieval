@@ -1,0 +1,1 @@
+$1 --http-port 8000 --http-address 0.0.0.0 --docroot $1
