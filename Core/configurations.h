@@ -23,7 +23,7 @@ static const int number_of_visual_words = 1000000;
 static const double EPS = 1e-9;
 
 static const string featureConfig = "-hesaff -sift -noangle";
-static const string computeDescriptorPath = "sudo ./data/utils/hesaff";
+static const string computeDescriptorPath = "./data/utils/hesaff";
 
 // static const string codebookFile = "./data/oxbuilding_codebook_l2_1000000_24464227_128_50it.hdf5";
 static const string codebookFile = "./data/Clustering_l2_1000000_13516675_128_50it.hdf5";
@@ -39,7 +39,7 @@ static const string termIDFolder = "./data/termID";
 static const string apFolder = "./data/ap";
 static const string tempFolder = "./data/temp";
 static const string tempImageFolder = "./data/tempImage";
-static const string wgetCmd = "sudo wget";
+static const string wgetCmd = "wget";
 
 static const int loopSleepTime = 1000;
 

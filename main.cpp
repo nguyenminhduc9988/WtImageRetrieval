@@ -34,7 +34,6 @@ WApplication* createApplication(const WEnvironment& env)
 
 int main(int argc, char** argv)
 {
-    system("sudo -s");
     extractAll();
     quantizeAllData();
     try

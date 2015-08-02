@@ -89,7 +89,7 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     // /////////////////////////////////
 
     AppData *app = AppData::getInstance();
-    std::cout <<  "Done Dowload" << std::endl;
+
 
     tmp.replace(tmp.size() - 3, 3, "mat");
 
