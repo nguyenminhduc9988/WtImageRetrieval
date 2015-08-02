@@ -70,7 +70,7 @@ void quantizeAllData() {
     int nDocs = app->path.size();
     cout << "For loop quantize" <<endl;
     for (int i = 0; i < nDocs; i++) {
-
+        cout << "Head of loop" << endl;
         string tmp = app->path[i];
         tmp.replace(tmp.size() - 3, 3, "mat");
 
