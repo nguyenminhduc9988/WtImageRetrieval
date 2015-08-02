@@ -67,6 +67,7 @@ void quantizeAllData() {
     boost::filesystem::create_directories(weightFolder);
     boost::filesystem::create_directories(termIDFolder);
     int nDocs = app->path.size();
+    cout << "For loop quantize" <<endl;
     for (int i = 0; i < nDocs; i++) {
 
         string tmp = app->path[i];
