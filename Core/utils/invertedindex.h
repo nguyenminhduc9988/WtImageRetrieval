@@ -105,7 +105,7 @@ struct InvertedIndex {
         }
 
         debugInfo("Done first loop");
-        debugVar(termId.nWords);
+        debugVar(nWords);
         for (int i = 0; i < nWords; ++i)
             if (!index[i].empty() && index[i].back() == docId)
                 frequency[i].back() /= sqrt(rawFreq[i] + 1);
