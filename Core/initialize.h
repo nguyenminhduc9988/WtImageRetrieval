@@ -84,7 +84,7 @@ void quantizeAllData() {
         uvec _termID;
 
         buildBoW(app->sift[i], _weights, _termID, weightPath, termIDPath, false);
-        
+        cout << "Done building BOW" << endl;
 //        Insert to inverted index
         app->ivt.add(_weights, _termID, i);
 
