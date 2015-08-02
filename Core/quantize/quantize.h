@@ -3,6 +3,8 @@
 #define QUANTIZE_H_INCLUDED
 
 #include "../configurations.h"
+#include <iostream>
+using namespace std;
 
  const double deltaSqr = 6250;
  const int nKdTree = 8;
@@ -40,21 +42,27 @@
             _termID.load(termIDPath);
             return;
         }
-
+        cout << "building bow" << endl;
         double *tmpData = new double[imageDesc.n_elem];
         memcpy(tmpData, imageDesc.memptr(), sizeof(double) * imageDesc.n_elem);
         cvflann::Matrix<double> query(tmpData, imageDesc.n_cols, imageDesc.n_rows);
 
+        cout << "cpy mem success" << endl;
+
         cvflann::Matrix<int> indices(new int[query.rows*queryKnn], query.rows, queryKnn);
         cvflann::Matrix<double> dists(new double[query.rows*queryKnn], query.rows, queryKnn);
 
+        cout << "cpy mem success" << endl;
+
         Quantize::treeIndex->knnSearch(query, indices, dists, queryKnn, cvflann::SearchParams(nChecks));
+
+        cout << "cpy mem success" << endl;
 
         umat bins(queryKnn, query.rows);
         memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(int));
         mat sqrDists(queryKnn, query.rows);
         memcpy(sqrDists.memptr(), dists.data, query.rows * queryKnn * sizeof(double));
-
+        cout << "cpy mem success" << endl;
         _termID = vectorise(bins, 0);
 
         mat weights = exp(-sqrDists / (2 * deltaSqr));
@@ -65,6 +73,7 @@
             _weights.save(weightPath);
             _termID.save(termIDPath);
         }
+        delete [] tmpData;
     }
 
 

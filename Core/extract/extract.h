@@ -56,6 +56,7 @@ inline void extractFeatures(string imagePath, mat &kpMat, mat &siftMat, const st
 
     string cmd = computeDescriptorPath + " " + imagePath + " " + tempFile;
     cout << cmd << endl;
+
     system(cmd.c_str());
 
     mat clip_kp;
