@@ -51,7 +51,7 @@ inline void extractFeatures(string imagePath, mat &kpMat, mat &siftMat, const st
 //        cout << siftMat.n_rows <<" "<<siftMat.n_cols << endl;
         return;
     }
-
+    cout << "Done check path" << endl;
     string tempFile = "./temp.mat";
 
     string cmd = computeDescriptorPath + " " + imagePath + " " + tempFile;

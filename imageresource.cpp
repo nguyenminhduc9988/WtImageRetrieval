@@ -89,7 +89,7 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     // /////////////////////////////////
 
     AppData *app = AppData::getInstance();
-
+    std::cout << "Done download and get data" << std::endl;
 
     tmp.replace(tmp.size() - 3, 3, "mat");
 
@@ -97,7 +97,7 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     string siftPath = siftFolder + "/" + tmp;
     string tempPath = tempFolder + "/" + tmp;
     //imgPath = queryFolder + "/" + *imgPath;
-
+    std::cout << "Done string op" << endl;
     mat _kp, _sift;
     extractFeatures(imgLocalPath, _kp, _sift, kpPath, siftPath, tempPath);
 
