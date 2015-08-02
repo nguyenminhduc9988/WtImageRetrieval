@@ -91,7 +91,8 @@ struct InvertedIndex {
         nDocs++;
 
         debugInfo("Adding document to inverted index");
-        debugVar(docId);
+
+        debugVar(termId.n_elem);
 
         vector <int> rawFreq(nWords);
         for (int i = 0; i < termId.n_elem; i++) {
@@ -103,6 +104,8 @@ struct InvertedIndex {
             frequency[termId[i]].back() += freq[i];
         }
 
+        debugInfo("Done first loop");
+        debugVar(termId.nWords);
         for (int i = 0; i < nWords; ++i)
             if (!index[i].empty() && index[i].back() == docId)
                 frequency[i].back() /= sqrt(rawFreq[i] + 1);
