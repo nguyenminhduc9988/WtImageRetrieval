@@ -27,6 +27,7 @@ static const string computeDescriptorPath = "./data/utils/hesaff";
 
 // static const string codebookFile = "./data/oxbuilding_codebook_l2_1000000_24464227_128_50it.hdf5";
 static const string codebookFile = "./data/Clustering_l2_1000000_13516675_128_50it.hdf5";
+//Clustering_l2_1000000_13516675_128_50it.hdf5
 static const string indexFile = "./data/flannIndex.hdf5";
 
 static const string dataFolder = "./data/images";

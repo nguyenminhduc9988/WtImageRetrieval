@@ -61,7 +61,7 @@ void quantizeAllData() {
     debugInfo("Quantizing images");
 
     buildIndex(true);
-
+    debugInfo("Done build index");
     app->weights.reserve(app->path.size());
     app->termID.reserve(app->path.size());
     boost::filesystem::create_directories(weightFolder);

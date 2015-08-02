@@ -23,7 +23,7 @@ using namespace std;
 
     inline void buildIndex(bool force = false) {
         cvflann::load_from_file(Quantize::dataset, codebookFile, "clusters");
-
+        cout << "Done load" << endl;
         cvflann::IndexParams *indexParams;
 
         if (!force && boost::filesystem::exists(indexFile))
