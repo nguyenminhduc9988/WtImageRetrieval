@@ -53,7 +53,7 @@ struct InvertedIndex {
 
         isBuild = true;
 
-        debugInfo("Finish");
+        //debugInfo("Finish");
     }
 
     vector<double> makeQueryTfidf(vec freq, uvec termId) {
@@ -109,7 +109,7 @@ struct InvertedIndex {
 
         isBuild = false;
 
-        debugInfo("Finish");
+        //debugInfo("Finish");
     }
 };
 
