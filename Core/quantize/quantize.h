@@ -6,7 +6,7 @@
 
  const double deltaSqr = 6250;
  const int nKdTree = 8;
- const int nChecks = 800;
+ const int nChecks = 100;
  const int dataKnn = 1;
  const int queryKnn = 3;
  class Quantize
@@ -34,7 +34,7 @@
         Quantize::treeIndex->save(indexFile);
     }
 
-    inline void buildBoW(const mat &imageDesc, vec &_weights, uvec &_termID, const string &weightPath, const string &termIDPath, bool force = false) {
+    inline void buildBoW(const mat &imageDesc, vec &_weights, uvec &_termID, const string &weightPath, const string &termIDPath, bool force = false, bool save = true) {
         if (!force && boost::filesystem::exists(weightPath)) {
             _weights.load(weightPath);
             _termID.load(termIDPath);
@@ -60,9 +60,11 @@
         mat weights = exp(-sqrDists / (2 * deltaSqr));
         weights = weights / repmat(sum(weights, 0), weights.n_rows, 1);
         _weights = vectorise(weights, 0);
-
-        _weights.save(weightPath);
-        _termID.save(termIDPath);
+        if (save)
+        {
+            _weights.save(weightPath);
+            _termID.save(termIDPath);
+        }
     }
 
 

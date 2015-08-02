@@ -25,3 +25,12 @@ inline string vectorToJson(vector<string> v, string name) {
 }
 
 #endif
+
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <sys/time.h>
+#include <ctime>
+#endif
+
+/* Remove if already defined */
