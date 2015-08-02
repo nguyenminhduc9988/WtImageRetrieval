@@ -90,8 +90,8 @@ struct InvertedIndex {
     void add(vec freq, uvec termId, int docId) {
         nDocs++;
 
-//        debugInfo("Adding document to inverted index");
-//        debugVar(docId);
+        debugInfo("Adding document to inverted index");
+        debugVar(docId);
 
         vector <int> rawFreq(nWords);
         for (int i = 0; i < termId.n_elem; i++) {
@@ -109,7 +109,7 @@ struct InvertedIndex {
 
         isBuild = false;
 
-        //debugInfo("Finish");
+        debugInfo("Finish");
     }
 };
 
