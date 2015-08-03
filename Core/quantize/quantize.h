@@ -55,11 +55,15 @@ using namespace std;
 
 
         Quantize::treeIndex->knnSearch(query, indices, dists, queryKnn, cvflann::SearchParams(nChecks));
-
-
+        cvflann::Matrix<uword> indicesLong(new uword[query.rows*queryKnn], query.rows, queryKnn);
+        for (int i=0;i<indices.rows;++i){
+            for (int j=0;j<indices.cols;++j){
+                        indicesLong[i][j] = (uword)indices[i][j];
+            }
+        }
 
         arma::umat bins(queryKnn, query.rows);
-        memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(int));
+        memcpy(bins.memptr(), indicesLong.data, query.rows * queryKnn * sizeof(uword));
         arma::mat sqrDists(queryKnn, query.rows);
         memcpy(sqrDists.memptr(), dists.data, query.rows * queryKnn * sizeof(double));
 

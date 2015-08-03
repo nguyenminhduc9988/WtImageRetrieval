@@ -67,7 +67,7 @@ struct InvertedIndex {
         vector<double> qFrequency(nWords, 0);
         double qSumFrequency = 0;
         for (int i = 0; i < termId.n_elem; i++) {
-            debugVar(termId[i]); //  debug wrong
+//            debugVar(termId[i]); //  debug wrong
             qFrequency[termId[i]] += freq[i];
             rawFreq[termId[i]]++;
         }
@@ -91,9 +91,9 @@ struct InvertedIndex {
     void add(vec freq, uvec termId, int docId) {
         nDocs++;
 
-        debugInfo("Adding document to inverted index");
-        debugVar(nWords);
-        debugVar(termId.n_elem);
+//        debugInfo("Adding document to inverted index");
+//        debugVar(nWords);
+//        debugVar(termId.n_elem);
 
         vector <int> rawFreq(nWords);
         for (int i = 0; i < termId.n_elem; i++) {
@@ -108,8 +108,8 @@ struct InvertedIndex {
             frequency[termId[i]].back() += freq[i];
         }
 
-        debugInfo("Done first loop");
-        debugVar(nWords);
+//        debugInfo("Done first loop");
+//        debugVar(nWords);
         for (int i = 0; i < nWords; ++i)
             if (!index[i].empty() && index[i].back() == docId)
                 frequency[i].back() /= sqrt(rawFreq[i] + 1);
