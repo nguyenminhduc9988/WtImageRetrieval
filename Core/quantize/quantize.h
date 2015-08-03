@@ -74,7 +74,7 @@ using namespace std;
             _weights.save(weightPath);
             _termID.save(termIDPath);
         }
-        delete [] tmpData;
+
     }
 
 
