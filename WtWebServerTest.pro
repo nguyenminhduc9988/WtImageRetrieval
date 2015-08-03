@@ -5,6 +5,8 @@ CONFIG -= qt
 CONFIG += c++11
 CONFIG += -02
 
+
+
 SOURCES += main.cpp \
     imageretrievalapplication.cpp \
     imageresource.cpp \

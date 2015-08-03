@@ -49,7 +49,7 @@ using namespace std;
 
 
 
-        cvflann::Matrix<int> indices(new int[query.rows*queryKnn], query.rows, queryKnn);
+        cvflann::Matrix<long long> indices(new long long[query.rows*queryKnn], query.rows, queryKnn);
         cvflann::Matrix<double> dists(new double[query.rows*queryKnn], query.rows, queryKnn);
 
 
