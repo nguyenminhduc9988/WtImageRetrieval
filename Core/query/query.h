@@ -6,7 +6,7 @@
 #include "../app/appdata.h"
 
 
-inline vector<double> computeAllScores(vector<double> qTfidf) {
+inline vector<double> computeAllScores(vector<double> qTfidf) { // from query vector compute score with db images
     AppData *app = AppData::getInstance();
 
     vector<double> scores(app->ivt.nDocs);

@@ -97,4 +97,57 @@ void quantizeAllData() {
     app->ivt.buildTfidf();
 }
 
+void extractAndQuantize()
+{
+    AppData *app = AppData::getInstance();
+
+//    Get list of image files
+    DIR *dir = opendir(dataFolder.c_str());
+    while (dirent *pdir = readdir(dir)) {
+        string fName = pdir->d_name;
+        if (fName[0] == '.') continue;
+
+        app->path.push_back(fName);
+    }
+
+    debugInfo("Extracting features");
+
+//    Extract features
+    app->path.shrink_to_fit();
+
+    app->kp.reserve(app->path.size());
+    app->sift.reserve(app->path.size());
+    app->weights.reserve(app->path.size());
+    app->termID.reserve(app->path.size());
+
+    int nDocs = app->path.size();
+
+    boost::filesystem::create_directories(kpFolder);
+    boost::filesystem::create_directories(siftFolder);
+    boost::filesystem::create_directories(tempFolder);
+    for (string imgPath : app->path) {
+        string tmp = imgPath;
+        tmp.replace(tmp.size() - 3, 3, "mat");
+
+        string kpPath = kpFolder + "/" + tmp;
+        string siftPath = siftFolder + "/" + tmp;
+        string tempPath = tempFolder + "/" + tmp;
+        string weightPath = weightFolder + "/" + tmp;
+        string termIDPath = termIDFolder + "/" + tmp;
+
+        imgPath = dataFolder + "/" + imgPath;
+
+        mat _kp, _sift;
+        extractFeatures(imgPath, _kp, _sift, kpPath, siftPath, tempPath);
+        vec _weights;
+        uvec _termID;
+        buildBoW(app->sift[i], _weights, _termID, weightPath, termIDPath, false);
+
+
+        app->kp.push_back(_kp);
+        app->ivt.add(_weights, _termID, i);
+        app->termID.push_back(_termID);
+        app->weights.push_back(_weights);
+    }
+
 #endif

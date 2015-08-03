@@ -43,10 +43,13 @@ inline void convertJPGtoPNG(string filename) {
     cv::imwrite(filename.replace(filename.size() - 3, 3, "png"), im);
 }
 
-inline void extractFeatures(string imagePath, mat &kpMat, mat &siftMat, const string &kpPath, const string &siftPath, const string &tempPath, bool force = false) {
+inline void extractFeatures(string imagePath, mat &kpMat, mat &siftMat, const string &kpPath, const string &siftPath, const string &tempPath, bool force = false, bool keepSIFT = true) {
     if (!force && boost::filesystem::exists(siftPath)) {
         kpMat.load(kpPath);
-        siftMat.load(siftPath);
+        if (keepSIFT)
+        {
+            siftMat.load(siftPath);
+        }
 //        cout << kpMat.n_rows <<" "<<kpMat.n_cols << endl;
 //        cout << siftMat.n_rows <<" "<<siftMat.n_cols << endl;
         return;

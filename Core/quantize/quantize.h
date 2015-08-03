@@ -56,6 +56,8 @@ using namespace std;
 
         Quantize::treeIndex->knnSearch(query, indices, dists, queryKnn, cvflann::SearchParams(nChecks));
 
+        //cvflann::Matrix<long long> indicesLong(new long long[query.rows*queryKnn], query.rows, queryKnn);
+
 
 
         arma::umat bins(queryKnn, query.rows);
