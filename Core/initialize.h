@@ -149,5 +149,10 @@ void extractAndQuantize()
         app->termID.push_back(_termID);
         app->weights.push_back(_weights);
     }
+}
+inline void loadSimpleData()
+{
+    // simple data contains: keypoint, bow representation, database aug
+}
 
 #endif

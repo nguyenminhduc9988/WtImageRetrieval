@@ -1,0 +1,22 @@
+#include "simplequeryresource.h"
+
+SimpleQueryResource::SimpleQueryResource()
+{
+
+}
+
+void SimpleQueryResource::handleRequest(const Http::Request &request, Http::Response &response)
+{
+
+}
+
+void SimpleQueryResource::queryExpansion()
+{
+
+}
+
+SimpleQueryResource::~SimpleQueryResource()
+{
+
+}
+

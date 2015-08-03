@@ -18,7 +18,9 @@ SOURCES += main.cpp \
     Core/compute_map.cpp \
     Core/quantize/quantize.cpp \
     Core/app/appdata.cpp \
-    homeresource.cpp
+    homeresource.cpp \
+    simplequeryresource.cpp \
+    simpledata.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -43,7 +45,9 @@ HEADERS += \
     Core/local_configurations.h \
     Core/runserver.h \
     Core/test.h \
-    homeresource.h
+    homeresource.h \
+    simplequeryresource.h \
+    simpledata.h
 LIBS += -lwthttp -lwt -lpthread -lhdf5 -lboost_system -lboost_filesystem `pkg-config --libs opencv` -lmysqlcppconn
 
 

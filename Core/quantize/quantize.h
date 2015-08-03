@@ -56,12 +56,16 @@ using namespace std;
 
         Quantize::treeIndex->knnSearch(query, indices, dists, queryKnn, cvflann::SearchParams(nChecks));
 
-        //cvflann::Matrix<long long> indicesLong(new long long[query.rows*queryKnn], query.rows, queryKnn);
-
+        cvflann::Matrix<uword> indicesLong(new uword[query.rows*queryKnn], query.rows, queryKnn);
+        for (int i=0;i<indices.rows;++i){
+            for (int j=0;j<indices.cols;++j){
+                        indicesLong[i][j] = (uword)indices[i][j];
+            }
+        }
 
 
         arma::umat bins(queryKnn, query.rows);
-        memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(int));
+        memcpy(bins.memptr(), indicesLong.data, query.rows * queryKnn * sizeof(uword));
         arma::mat sqrDists(queryKnn, query.rows);
         memcpy(sqrDists.memptr(), dists.data, query.rows * queryKnn * sizeof(double));
 
@@ -70,7 +74,7 @@ using namespace std;
         mat weights = exp(-sqrDists / (2 * deltaSqr));
         weights = weights / repmat(sum(weights, 0), weights.n_rows, 1);
         _weights = vectorise(weights, 0);
-        cout << "Ready to save termId" << endl;
+
         if (save)
         {
             _weights.save(weightPath);
