@@ -114,9 +114,9 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
 
     buildBoW(_sift, _weights, _termID, weightPath, termIDPath, true, false);
     debugInfo("Done build BoW");
-    for (int i=0;i<_temrID.n_elem;++i)
+    for (int i=0;i<_termID.n_elem;++i)
     {
-        cout << _temrID[i] << endl;
+        cout << _termID[i] << endl;
     }
     vector<double> qTfidf = app->ivt.makeQueryTfidf(_weights, _termID);
 
