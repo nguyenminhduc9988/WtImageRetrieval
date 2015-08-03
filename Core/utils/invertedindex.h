@@ -67,7 +67,7 @@ struct InvertedIndex {
         vector<double> qFrequency(nWords, 0);
         double qSumFrequency = 0;
         for (int i = 0; i < termId.n_elem; i++) {
-            debugVar(termId[i]);
+            debugVar(termId[i]); //  debug wrong
             qFrequency[termId[i]] += freq[i];
             rawFreq[termId[i]]++;
         }
@@ -99,7 +99,7 @@ struct InvertedIndex {
         for (int i = 0; i < termId.n_elem; i++) {
 //            debugVar(termId[i]);
             if (index[termId[i]].empty() || index[termId[i]].back() != docId) {
-                debugInfo("in if clause");
+//                debugInfo("in if clause");
                 index[termId[i]].push_back(docId);
                 frequency[termId[i]].push_back(0);
             }
