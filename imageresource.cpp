@@ -105,7 +105,7 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
 
     int nDocs = app->path.size();
     vec _weights;
-    vec _termID;
+    uvec _termID;
     string weightPath = weightFolder + "/" + tmp;
     string termIDPath = termIDFolder + "/" + tmp;
 
@@ -115,9 +115,9 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     buildBoW(_sift, _weights, _termID, weightPath, termIDPath, true, false);
 
     debugInfo("Done build BoW");
-    for (int i=0;i<_termID.n_elem;++i)
+    for (unsigned int i=0;i<_termID.n_elem;++i)
     {
-        cout << _termID[i] << endl;
+        cout << sizeof(_termID[i]) << endl;
     }
 
     vector<double> qTfidf = app->ivt.makeQueryTfidf(_weights, _termID);
