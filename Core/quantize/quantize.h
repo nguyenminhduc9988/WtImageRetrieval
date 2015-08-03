@@ -49,7 +49,7 @@ using namespace std;
 
 
 
-        cvflann::Matrix<long long> indices(new long long[query.rows*queryKnn], query.rows, queryKnn);
+        cvflann::Matrix<int> indices(new int[query.rows*queryKnn], query.rows, queryKnn);
         cvflann::Matrix<double> dists(new double[query.rows*queryKnn], query.rows, queryKnn);
 
 
@@ -58,12 +58,12 @@ using namespace std;
 
 
 
-        umat bins(queryKnn, query.rows);
-        memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(long long));
-        mat sqrDists(queryKnn, query.rows);
+        arma::umat bins(queryKnn, query.rows);
+        memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(int));
+        arma::mat sqrDists(queryKnn, query.rows);
         memcpy(sqrDists.memptr(), dists.data, query.rows * queryKnn * sizeof(double));
 
-        _termID = vectorise(bins, 0);
+        _termID = arma::vectorise(bins, 0);
 
         mat weights = exp(-sqrDists / (2 * deltaSqr));
         weights = weights / repmat(sum(weights, 0), weights.n_rows, 1);

@@ -104,8 +104,8 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     extractFeatures(imgLocalPath, _kp, _sift, kpPath, siftPath, tempPath);
 
     int nDocs = app->path.size();
-    vec _weights;
-    uvec _termID;
+    arma::vec _weights;
+    arma::uvec _termID;
     string weightPath = weightFolder + "/" + tmp;
     string termIDPath = termIDFolder + "/" + tmp;
 
