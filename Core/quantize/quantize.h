@@ -59,7 +59,7 @@ using namespace std;
 
 
         umat bins(queryKnn, query.rows);
-        memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(int));
+        memcpy(bins.memptr(), indices.data, query.rows * queryKnn * sizeof(long long));
         mat sqrDists(queryKnn, query.rows);
         memcpy(sqrDists.memptr(), dists.data, query.rows * queryKnn * sizeof(double));
 
