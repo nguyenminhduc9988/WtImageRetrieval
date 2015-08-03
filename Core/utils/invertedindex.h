@@ -53,7 +53,7 @@ struct InvertedIndex {
 
         isBuild = true;
 
-        debugInfo("Finish");
+        //debugInfo("Finish");
     }
 
     vector<double> makeQueryTfidf(vec freq, uvec termId) {
@@ -90,19 +90,25 @@ struct InvertedIndex {
     void add(vec freq, uvec termId, int docId) {
         nDocs++;
 
-//        debugInfo("Adding document to inverted index");
-//        debugVar(docId);
+        debugInfo("Adding document to inverted index");
+        debugVar(nWords);
+        debugVar(termId.n_elem);
 
         vector <int> rawFreq(nWords);
         for (int i = 0; i < termId.n_elem; i++) {
+            debugVar(termId[i]);
             if (index[termId[i]].empty() || index[termId[i]].back() != docId) {
+                debugInfo("in if clause");
                 index[termId[i]].push_back(docId);
                 frequency[termId[i]].push_back(0);
             }
+            debugInfo("out if clause");
             rawFreq[termId[i]]++;
             frequency[termId[i]].back() += freq[i];
         }
 
+        debugInfo("Done first loop");
+        debugVar(nWords);
         for (int i = 0; i < nWords; ++i)
             if (!index[i].empty() && index[i].back() == docId)
                 frequency[i].back() /= sqrt(rawFreq[i] + 1);

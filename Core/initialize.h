@@ -6,7 +6,8 @@
 #include "app/appdata.h"
 #include "extract/extract.h"
 #include "quantize/quantize.h"
-
+#include <iostream>
+using namespace std;
 
 void extractAll() {
 
@@ -61,14 +62,15 @@ void quantizeAllData() {
     debugInfo("Quantizing images");
 
     buildIndex(true);
-
+    debugInfo("Done build index");
     app->weights.reserve(app->path.size());
     app->termID.reserve(app->path.size());
     boost::filesystem::create_directories(weightFolder);
     boost::filesystem::create_directories(termIDFolder);
     int nDocs = app->path.size();
+    cout << "For loop quantize" <<endl;
     for (int i = 0; i < nDocs; i++) {
-
+        cout << "Head of loop" << endl;
         string tmp = app->path[i];
         tmp.replace(tmp.size() - 3, 3, "mat");
 
@@ -83,7 +85,7 @@ void quantizeAllData() {
         uvec _termID;
 
         buildBoW(app->sift[i], _weights, _termID, weightPath, termIDPath, false);
-        
+        cout << "Done building BOW" << endl;
 //        Insert to inverted index
         app->ivt.add(_weights, _termID, i);
 
