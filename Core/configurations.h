@@ -44,7 +44,7 @@ static const string termIDFolder = "./data/termID";
 static const string apFolder = "./data/ap";
 static const string tempFolder = "./data/temp";
 static const string tempImageFolder = "./data/tempImage";
-static const string wgetCmd = "wget";
+
 
 static const int loopSleepTime = 1000;
 static const string wgetCmd = "wget";
