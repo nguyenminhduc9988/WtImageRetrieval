@@ -96,6 +96,7 @@ struct InvertedIndex {
 
         vector <int> rawFreq(nWords);
         for (int i = 0; i < termId.n_elem; i++) {
+            debugVar(termId[i]);
             if (index[termId[i]].empty() || index[termId[i]].back() != docId) {
                 debugInfo("in if clause");
                 index[termId[i]].push_back(docId);
