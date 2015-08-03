@@ -2,7 +2,8 @@
 #define UTILS_H_INCLUDED
 
 #include "../configurations.h"
-
+#include <string>
+using namespace std;
 
 inline string getFileBaseName(string fileName) {
     return fileName.substr(0, fileName.rfind("."));
@@ -23,5 +24,16 @@ inline string vectorToJson(vector<string> v, string name) {
     json += "\t]\n}";
     return json;
 }
+
+//inline void gen_random(string &s, const int len) {
+//    static const char alphanum[] =
+//        "0123456789"
+//        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+//        "abcdefghijklmnopqrstuvwxyz";
+//    s = "";
+//    for (int i = 0; i < len; ++i) {
+//        s += alphanum[rand() % (sizeof(alphanum) - 1)];
+//    }
+//}
 
 #endif

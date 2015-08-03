@@ -37,6 +37,13 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
         response.out() << "No image is selected sorry\n";
         return;
     }
+
+    // download image and store
+    string wgetCommand = "";
+    wgetCommand = wgetCommand + wgetCmd + " -O " + imgName + " " + imgPath;
+    system(wgetCommand);
+    // /////////////////////////////////
+
     AppData *app = AppData::getInstance();
 
     string tmp = *imgName;

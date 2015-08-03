@@ -1,4 +1,7 @@
 #include <iostream>
+#include <random>
+#include <time.h>
+#include <stdlib.h>
 #include <Wt/WApplication>
 #include <Wt/WBreak>
 #include <Wt/WContainerWidget>
@@ -34,6 +37,7 @@ WApplication* createApplication(const WEnvironment& env)
 
 int main(int argc, char** argv)
 {
+    srand(time(NULL));
     extractAll();
     quantizeAllData();
     try
