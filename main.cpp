@@ -48,7 +48,7 @@ int main(int argc, char** argv)
         server.setServerConfiguration(argc, argv, WTHTTP_CONFIGURATION);
         ImageResource* resource = new ImageResource();
         HomeResource* homeresource = new HomeResource();
-        HomeResource* homeresource = new HomeResource();
+
 
         server.addResource(homeresource, "/");
         server.addResource(resource, "/api");
