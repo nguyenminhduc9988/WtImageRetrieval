@@ -1,6 +1,8 @@
 #ifndef SIMPLEDATA_H
 #define SIMPLEDATA_H
+#include <tuple>
 
+#define ImageFeature std::tuple<std::string,arma::mat,
 
 class SimpleData
 {

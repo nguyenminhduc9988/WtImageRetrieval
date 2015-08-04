@@ -38,13 +38,16 @@ WApplication* createApplication(const WEnvironment& env)
 int main(int argc, char** argv)
 {
     srand(time(NULL));
-    extractAll();
-    quantizeAllData();
+//    extractAll();
+//    quantizeAllData();
+    extractAndQuantizeAll();
+
     try
     {
         WServer server(argv[0]);
         server.setServerConfiguration(argc, argv, WTHTTP_CONFIGURATION);
         ImageResource* resource = new ImageResource();
+        HomeResource* homeresource = new HomeResource();
         HomeResource* homeresource = new HomeResource();
 
         server.addResource(homeresource, "/");
