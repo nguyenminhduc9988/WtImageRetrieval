@@ -2,6 +2,7 @@
 #include <random>
 #include <time.h>
 #include <stdlib.h>
+#include <exception>
 #include <Wt/WApplication>
 #include <Wt/WBreak>
 #include <Wt/WContainerWidget>

@@ -1,5 +1,7 @@
 #ifndef SIMPLEDATA_H
 #define SIMPLEDATA_H
+#include <tuple>
+
 
 
 class SimpleData

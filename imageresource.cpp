@@ -133,9 +133,17 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     sort(rankedList.begin(), rankedList.end(), score);
     timeDiff = GetTimeMs64() - startTime;
     cout << timeDiff << endl;
-    for (int i=0; i < std::min(50,nDocs); ++i)
-        response.out() << app->path[rankedList[i]];
 
+    int resLength = std::min(50,nDocs);
+
+    response.out() << "[";
+    for (int i=0; i < resLength; ++i) {
+        response.out() << "\"" << app->path[rankedList[i]] << "\"";
+        if (i != resLength-1) {
+            response.out() << ",";
+        }
+    }
+    response.out() << "]";
 
 //    Read post data if you want to get the structure parse manually
 //    const istream *reqBody = &request.in();
