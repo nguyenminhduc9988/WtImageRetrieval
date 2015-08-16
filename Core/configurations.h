@@ -24,9 +24,9 @@ static const double EPS = 1e-9;
 
 static const string featureConfig = "-hesaff -sift -noangle";
 
-//static const string computeDescriptorPath = "./data/hesaff/hesaff";
+static const string computeDescriptorPath = "./data/hesaff/hesaff";
 
-static const string computeDescriptorPath = "./data/utils/hesaff";
+//static const string computeDescriptorPath = "./data/utils/hesaff";
 
 
 // static const string codebookFile = "./data/oxbuilding_codebook_l2_1000000_24464227_128_50it.hdf5";
