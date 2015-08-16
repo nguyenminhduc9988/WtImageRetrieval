@@ -118,7 +118,6 @@ void ImageResource::handleRequest(const Http::Request &request, Http::Response &
     debugInfo("Done build BoW");
     cout << sizeof(int) << endl;
     cout << sizeof(long long) << endl;
-    cout  << sizeof(_termID[0]) << endl;
 //    for (unsigned int i=0;i<_termID.n_elem;++i)
 //    {
 //        cout << sizeof(_termID[i]) << endl;
