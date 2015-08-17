@@ -30,7 +30,9 @@ static const string computeDescriptorPath = "./data/hesaff/hesaff";
 
 
 // static const string codebookFile = "./data/oxbuilding_codebook_l2_1000000_24464227_128_50it.hdf5";
-static const string codebookFile = "./data/Clustering_l2_1000000_13516675_128_50it.hdf5";
+//static const string codebookFile = "./data/Clustering_l2_1000000_13516675_128_50it.hdf5";
+static const string codebookFile = "./data/Clustering_l2_50000_1026237_128_50it.hdf5";
+static const string codebookFile = "./data/Clustering_l2_100000_1026237_128_50it.hdf5";
 //Clustering_l2_1000000_13516675_128_50it.hdf5
 static const string indexFile = "./data/flannIndex.hdf5";
 

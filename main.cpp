@@ -39,9 +39,9 @@ WApplication* createApplication(const WEnvironment& env)
 int main(int argc, char** argv)
 {
     srand(time(NULL));
-    extractAll();
-    quantizeAllData();
-//    extractAndQuantizeAll();
+//    extractAll();
+//    quantizeAllData();
+    extractAndQuantizeAll();
 
     try
     {

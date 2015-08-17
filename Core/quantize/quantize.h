@@ -72,6 +72,7 @@ using namespace std;
         _termID = arma::vectorise(bins, 0);
 
         mat weights = exp(-sqrDists / (2 * deltaSqr));
+        //mat weights = (1/2)
         weights = weights / repmat(sum(weights, 0), weights.n_rows, 1);
         _weights = vectorise(weights, 0);
 
