@@ -4,6 +4,7 @@
 
 #include "../configurations.h"
 #include <iostream>
+#include <cmath>
 using namespace std;
 
  const double deltaSqr = 6250;
@@ -71,9 +72,14 @@ using namespace std;
 
         _termID = arma::vectorise(bins, 0);
 
-        mat weights = exp(-sqrDists / (2 * deltaSqr));
-        //mat weights = (1/2)
-        weights = weights / repmat(sum(weights, 0), weights.n_rows, 1);
+        //mat weights = exp(-sqrDists / (2 * deltaSqr));
+        mat weights(queryKnn, 1);
+        for (int i=0;i<queryKnn;++i)
+        {
+            weights(i,0) = std::pow(0.5, i);
+        }
+        weights = repmat(weights, 1, query.rows);
+        //weights = weights / repmat(sum(weights, 0), weights.n_rows, 1);
         _weights = vectorise(weights, 0);
 
         if (save)
